@@ -107,7 +107,7 @@ sub call {
     }
     
     return _text(404, 'Not Found') unless (-r $out);
-    return _text(500, $!) unless open my $fh, '<', $out;
+    return _text(500, $!) unless open my $fh, '<:raw', $out;
 
     return [
         200, 
